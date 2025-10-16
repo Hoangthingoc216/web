@@ -15,5 +15,9 @@ class DashboardController extends Controller
     public function study(){
         return view('dashboard.study');
     }
+
+    public function flashcard(){
+        return view('dashboard.flashcard');
+    }
 }
 
