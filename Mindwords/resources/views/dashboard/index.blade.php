@@ -19,12 +19,30 @@
         <aside class="sidebar">
             <h2 class="logo">Mindwords</h2>
             <nav>
-                <a href="{{ route('dashboard') }}"><i class="bi bi-house"></i> Trang chủ</a>
-                <a href="{{ route('dashboard.study') }}" class="active"><i class="bi bi-book"></i> Học tập</a>
-                <a href="#"><i class="bi bi-layers"></i> Flashcards</a>
+                <a href="{{ route('dashboard') }}" 
+                    class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                    <i class="bi bi-house"></i> Trang chủ
+                </a>
+
+                <a href="{{ route('dashboard.study') }}" 
+                    class="{{ request()->routeIs('dashboard.study') ? 'active' : '' }}">
+                    <i class="bi bi-book"></i> Học tập
+                </a>
+
+                <a href="{{ route('dashboard.flashcard') }}" 
+                    class="{{ request()->routeIs('dashboard.flashcard') ? 'active' : '' }}">
+                    <i class="bi bi-layers"></i> flashcards
+                </a>
+
                 <a href="#"><i class="bi bi-star"></i> Thành tích</a>
                 <a href="#"><i class="bi bi-gear"></i> Cài đặt</a>
-                <a href="{{ route('logout') }}"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a>
+
+                <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="logout-btn">
+                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
+                    </button>
+                </form>
             </nav>
 
         </aside>
@@ -62,11 +80,7 @@
                     <h4><i class="bi bi-gem"></i> Điểm thưởng</h4>
                     <p>{{ Auth::user()->points ?? 0 }} điểm</p>
                 </div>
-                <!-- <div class="mt-4 text-center">
-                    <a href="{{ route('dashboard.study') }}" class="btn btn-primary">
-                        Học từ vựng
-                    </a>
-                /div> -->
+    
             </section>
         </main>
     </div>

@@ -12,7 +12,7 @@
             <a href="{{ route('dashboard.study') }}">
                 <i class="bi bi-book"></i> Học tập
             </a>
-            <a href="{{ route('dashboard.flashcards') }}" class="active">
+            <a href="{{ route('dashboard.flashcard') }}" class="active">
                 <i class="bi bi-layers"></i> Flashcards
             </a>
             <a href="#">
