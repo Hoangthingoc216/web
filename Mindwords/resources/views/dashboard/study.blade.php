@@ -15,7 +15,7 @@
             <nav>
                 <a href="{{ route('dashboard') }}"><i class="bi bi-house"></i> Trang chủ</a>
                 <a href="{{ route('dashboard.study') }}" class="active"><i class="bi bi-book"></i> Học tập</a>
-                <a href="#"><i class="bi bi-layers"></i> Flashcards</a>
+                <a href="#"><i class="bi bi-layers"></i> Flashcard</a>
                 <a href="#"><i class="bi bi-star"></i> Thành tích</a>
                 <a href="#"><i class="bi bi-gear"></i> Cài đặt</a>
                 <a href="{{ route('logout') }}"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a>
