@@ -39,9 +39,8 @@
 
                 <form method="POST" action="{{ route('logout') }}" style="display:inline;">
                     @csrf
-                    <button type="submit" class="logout-btn">
-                        <i class="bi bi-box-arrow-right"></i> Đăng xuất
-                    </button>
+                <a href="{{ route('logout') }}"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a>
+
                 </form>
             </nav>
 

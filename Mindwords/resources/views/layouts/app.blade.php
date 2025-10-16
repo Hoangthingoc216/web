@@ -11,19 +11,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Styles (dùng file trong public) -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-    <!-- Font Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Scripts (nếu có JS riêng) -->
-    <script defer src="{{ asset('js/script.js') }}"></script>
-
-    <!-- ⚠️ Không dùng Vite nữa -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('css/flashcard.css') }}">
 </head>
-
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
@@ -42,5 +32,8 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- JS -->
+    <script src="{{ asset('js/flashcard.js') }}"></script>
 </body>
 </html>

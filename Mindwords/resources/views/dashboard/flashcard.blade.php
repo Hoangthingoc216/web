@@ -1,59 +1,81 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="vi" class="transition-colors duration-500">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Flashcard | Mindwords</title>
 
-@section('content')
-<div class="dashboard-container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h2 class="logo">Mindwords</h2>
-        <nav>
-            <a href="{{ route('dashboard') }}">
-                <i class="bi bi-house"></i> Trang chủ
-            </a>
-            <a href="{{ route('dashboard.study') }}">
-                <i class="bi bi-book"></i> Học tập
-            </a>
-            <a href="{{ route('dashboard.flashcard') }}" class="active">
-                <i class="bi bi-layers"></i> Flashcards
-            </a>
-            <a href="#">
-                <i class="bi bi-star"></i> Thành tích
-            </a>
-            <a href="#">
-                <i class="bi bi-gear"></i> Cài đặt
-            </a>
-            <a href="{{ route('logout') }}">
-                <i class="bi bi-box-arrow-right"></i> Đăng xuất
-            </a>
-        </nav>
-    </aside>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/dashboard.css">
 
-    <!-- Nội dung chính -->
-    <main class="content">
-        <header class="header">
-            <h1><i class="bi bi-layers"></i> Bộ Flashcard của bạn</h1>
-        </header>
+    <!-- Font icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-        <section class="study-section">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4><i class="bi bi-card-text"></i> Danh sách từ vựng</h4>
-                <button class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i> Thêm Flashcard
-                </button>
-            </div>
+    <!-- JS -->
+    <script defer src="/js/flashcard.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2 class="logo">Mindwords</h2>
+            <nav>
+                <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                    <i class="bi bi-house"></i> Trang chủ
+                </a>
 
-            <!-- Danh sách flashcard -->
-            <div class="flashcard-list">
-                <div class="flashcard-item">
-                    <h5><i class="bi bi-lightbulb"></i> Example</h5>
-                    <p><strong><i class="bi bi-translate"></i> Nghĩa:</strong> Ví dụ</p>
-                    <button class="btn btn-outline-secondary btn-sm">
-                        <i class="bi bi-volume-up"></i> Nghe phát âm
-                    </button>
-                    <audio class="mt-2" controls 
-                        src="https://api.dictionaryapi.dev/media/pronunciations/en/example-us.mp3"></audio>
-                </div>
-            </div>
-        </section>
-    </main>
-</div>
-@endsection
+                <a href="{{ route('dashboard.study') }}" class="{{ request()->routeIs('dashboard.study') ? 'active' : '' }}">
+                    <i class="bi bi-book"></i> Học tập
+                </a>
+
+                <a href="{{ route('dashboard.flashcard') }}" class="{{ request()->routeIs('dashboard.flashcard') ? 'active' : '' }}">
+                    <i class="bi bi-layers"></i> Flashcards
+                </a>
+
+                <a href="#"><i class="bi bi-star"></i> Thành tích</a>
+                <a href="#"><i class="bi bi-gear"></i> Cài đặt</a>
+
+                <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+                    @csrf
+                    <a href="{{ route('logout') }}"><i class="bi bi-box-arrow-right"></i> Đăng xuất</a>
+
+                </form>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <h1><i class="bi bi-layers"></i> Create a new Flashcard</h1>
+            </header>
+
+            <section class="create-flashcard">
+                <form id="flashcardForm">
+                    <div class="form-group">
+                        <label for="title"><i class="bi bi-pencil-square"></i> Add a title:</label>
+                        <input type="text" id="title" name="title" placeholder="Enter flashcard title..." required>
+                    </div>
+
+                    <div id="cardContainer">
+                        <div class="word-pair">
+                            <div class="pair-header">1.</div>
+                            <input type="text" name="word[]" placeholder="Word" required>
+                            <input type="text" name="meaning[]" placeholder="Meaning" required>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button type="button" class="btn-add" id="addCardBtn">
+                            <i class="bi bi-plus-circle"></i> Add a card
+                        </button>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn-create">
+                            <i class="bi bi-check-circle"></i> Create
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
