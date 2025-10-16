@@ -10,13 +10,15 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('flashcard_topics', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
-
+{
+    Schema::create('flashcard_topics', function (Blueprint $table) {
+        $table->id();
+        $table->string('name'); // tên chủ đề
+        $table->text('description')->nullable();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->timestamps();
+    });
+}
     /**
      * Reverse the migrations.
      */
