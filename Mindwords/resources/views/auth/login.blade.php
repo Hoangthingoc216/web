@@ -148,11 +148,11 @@
             {{-- Social Login --}}
             <div class="social-login">
                 <button type="button" class="social-btn google">
-                    <img src="/images/g-logo.png" alt="Google Logo" style="width: 22px; height: 22px;">
+                    <img src="https://raw.githubusercontent.com/Hoangthingoc216/web/refs/heads/main/image/g-logo.png" alt="Google Logo" style="width: 22px; height: 22px;">
                     <span>Google</span>
                 </button>
                 <button type="button" class="social-btn facebook">
-                    <img src="/images/facebook-logo.png" alt="Facebook Logo" style="width: 22px; height: 22px;">
+                    <img src="https://raw.githubusercontent.com/Hoangthingoc216/web/refs/heads/main/image/facebook-logo.png" alt="Facebook Logo" style="width: 22px; height: 22px;">
                     <span>Facebook</span>
                 </button>
             </div>

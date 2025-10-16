@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
 
-            // Thông tin mở rộng
             $table->string('avatar')->nullable(); // Ảnh đại diện
             $table->enum('role', ['user', 'admin'])->default('user'); // Phân quyền
             $table->text('bio')->nullable(); // Mô tả ngắn về bản thân
@@ -29,7 +28,7 @@ return new class extends Migration
             $table->integer('points')->default(0); // Điểm thưởng
             $table->integer('streak_days')->default(0); // Số ngày học liên tục
 
-            // Cuối cùng mới đến timestamps
+            
             $table->timestamps();
         });
 
@@ -40,7 +39,7 @@ return new class extends Migration
             $table->timestamp('created_at')->nullable();
         });
 
-        // Bảng lưu phiên đăng nhập
+        // Bảng lưu  đăng nhập
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
